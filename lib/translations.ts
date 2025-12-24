@@ -1,9 +1,9 @@
-// ✅ translations.ts - النسخة النهائية المكتملة والمصلحة لجميع أخطاء الـ Build
+// ✅ translations.ts - النسخة الشاملة لمنع كافة أخطاء الـ Build في السلة والحساب
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
   ar: {
-    // === القوائم الأساسية ===
+    // === التنقل والقوائم ===
     home: 'الرئيسية',
     shop: 'المتجر',
     abayas: 'عباءات',
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === تسجيل الدخول والحساب ===
+    // === الحساب والمصادقة (Auth) ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -76,9 +76,14 @@ export const translations = {
     shipped: 'تم الشحن',
     delivered: 'تم التوصيل',
     cancelled: 'ملغي',
+    orderNumber: 'رقم الطلب',
+    orderConfirmation: 'تأكيد الطلب',
+    orderPlacedSuccessfully: 'تم إنشاء الطلب بنجاح!',
+    orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
-    // === السلة والكوبونات (Cart & Coupons) ===
+    // === سلة التسوق والكوبونات ===
     shoppingCart: 'سلة التسوق',
+    orderSummary: 'ملخص الطلب', // ✅ المفتاح الذي سبب الخطأ الأخير
     enterCoupon: 'أدخل كود الخصم',
     applyCoupon: 'تطبيق',
     couponCode: 'كود الخصم',
@@ -89,10 +94,12 @@ export const translations = {
     currency: 'جنيه',
     addToCart: 'أضف للسلة',
     addToWishlist: 'أضف للمفضلة',
+    items: 'عناصر',
+    remove: 'إزالة',
 
-    // === تفاصيل المنتج ===
-    product: 'منتج',    // ✅ أضفنا هذا
-    products: 'منتجات', // ✅ وهذا هو المفتاح الذي تسبب في الخطأ
+    // === المنتجات والمراجعات ===
+    product: 'منتج',
+    products: 'منتجات',
     reviews: 'تقييم',
     description: 'الوصف',
     inStock: 'متوفر',
@@ -108,7 +115,8 @@ export const translations = {
     pleaseTryAgain: 'يرجى المحاولة مرة أخرى لاحقاً',
     admin: 'مدير',
     customer: 'عميل',
-    qualityProducts: 'خامات عالية الجودة'
+    qualityProducts: 'خامات عالية الجودة',
+    easyReturns: 'إرجاع سهل خلال 14 يوم'
   },
 
   en: {
@@ -181,8 +189,13 @@ export const translations = {
     shipped: 'Shipped',
     delivered: 'Delivered',
     cancelled: 'Cancelled',
+    orderNumber: 'Order Number',
+    orderConfirmation: 'Order Confirmation',
+    orderPlacedSuccessfully: 'Order Placed Successfully!',
+    orderWillBeShipped: 'Thank you! Your order has been received and will be processed soon.',
 
     shoppingCart: 'Shopping Cart',
+    orderSummary: 'Order Summary', // ✅ المفتاح الذي سبب الخطأ الأخير
     enterCoupon: 'Enter coupon code',
     applyCoupon: 'Apply',
     couponCode: 'Coupon Code',
@@ -193,9 +206,11 @@ export const translations = {
     currency: 'EGP',
     addToCart: 'Add to Cart',
     addToWishlist: 'Add to Wishlist',
+    items: 'items',
+    remove: 'Remove',
 
-    product: 'Product',   // ✅ أضفنا هذا
-    products: 'Products', // ✅ وهذا هو المفتاح الذي تسبب في الخطأ
+    product: 'Product',
+    products: 'Products',
     reviews: 'Reviews',
     description: 'Description',
     inStock: 'In Stock',
@@ -210,6 +225,7 @@ export const translations = {
     pleaseTryAgain: 'Please try again',
     admin: 'Admin',
     customer: 'Customer',
-    qualityProducts: 'Quality Products'
+    qualityProducts: 'Quality Products',
+    easyReturns: 'Easy 14-Day Returns'
   }
 }
