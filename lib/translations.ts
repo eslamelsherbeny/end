@@ -1,4 +1,4 @@
-// ✅ translations.ts - النسخة الشاملة النهائية لإنهاء أخطاء الـ Build تماماً
+// ✅ translations.ts - النسخة النهائية الشاملة (متجر + سلة + حساب + شحن + نجاح الطلب)
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === الحساب والمصادقة (Auth) ===
+    // === الحساب والمصادقة ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -58,7 +58,7 @@ export const translations = {
     acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام للمتابعة',
     signupFailed: 'عذراً، فشل إنشاء الحساب. حاول مرة أخرى',
 
-    // === الطلبات (Orders) ===
+    // === الطلبات ===
     orders: 'طلبات',
     myOrders: 'طلباتي',
     allCategories: 'الكل',
@@ -81,7 +81,7 @@ export const translations = {
     orderPlacedSuccessfully: 'تم إنشاء الطلب بنجاح!',
     orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
-    // === إتمام الطلب والشحن (Checkout) ===
+    // === إتمام الطلب والشحن (Checkout & Success) ===
     checkout: 'إتمام الطلب',
     shippingAddress: 'عنوان الشحن',
     paymentMethod: 'طريقة الدفع',
@@ -102,7 +102,14 @@ export const translations = {
     fawry: 'فوري',
     next: 'التالي',
     previous: 'السابق',
-    edit: 'تعديل', // ✅ المفتاح الذي سبب الخطأ الأخير
+    edit: 'تعديل',
+    shippingDelivery: 'الشحن والتوصيل', // ✅ المفتاح المطلوب حالياً
+    fastDelivery: 'توصيل سريع خلال 3-5 أيام',
+    within24Hours: 'خلال 24 ساعة',
+    within3To5Days: 'خلال 3-5 أيام',
+    backToShop: 'العودة للمتجر',
+    thankYou: 'شكراً لك',
+    needHelp: 'هل تحتاج مساعدة؟',
 
     // === سلة التسوق والكوبونات ===
     shoppingCart: 'سلة التسوق',
@@ -238,7 +245,14 @@ export const translations = {
     fawry: 'Fawry',
     next: 'Next',
     previous: 'Previous',
-    edit: 'Edit', // ✅ المفتاح المطلوب
+    edit: 'Edit',
+    shippingDelivery: 'Shipping & Delivery', // ✅ المفتاح المطلوب حالياً
+    fastDelivery: 'Fast Delivery within 3-5 days',
+    within24Hours: 'Within 24 hours',
+    within3To5Days: 'Within 3-5 days',
+    backToShop: 'Back to Shop',
+    thankYou: 'Thank You',
+    needHelp: 'Need help?',
 
     shoppingCart: 'Shopping Cart',
     orderSummary: 'Order Summary',
