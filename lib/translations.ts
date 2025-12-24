@@ -142,6 +142,10 @@ export const translations = {
     address: 'العنوان بالتفصيل',
     postalCode: 'الرمز البريدي',
     notes: 'ملاحظات إضافية',
+    reviews: 'تقييم',
+    addToWishlist: 'أضف للمفضلة',
+    easyReturns: 'إرجاع سهل خلال 14 يوم',
+    qualityProducts: 'خامات عالية الجودة',
 
     required: 'مطلوب',
     save: 'حفظ',
@@ -157,8 +161,7 @@ export const translations = {
 
     securePayments: 'دفع آمن 100%',
     fastDeliveryInfo: 'توصيل سريع 3-5 أيام',
-    easyReturns: 'إرجاع سهل خلال 14 يوم',
-    qualityProducts: 'خامات عالية الجودة',
+
     download: 'تحميل',
     contactUs: 'تواصل معنا',
     help: 'مساعدة',
@@ -367,6 +370,8 @@ export const translations = {
       'By logging in, you agree to our Terms of Service and Privacy Policy',
     signupAgreement:
       'By creating an account, you agree to our Terms of Service and Privacy Policy',
+    reviews: 'Reviews',
+    addToWishlist: 'Add to Wishlist',
 
     // === Auth Messages ===
     loginSuccess: 'Login Successful',
