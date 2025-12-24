@@ -1,9 +1,9 @@
-// ✅ translations.ts - النسخة النهائية الشاملة لإنهاء أخطاء الـ Build تماماً
+// ✅ translations.ts - النسخة الشاملة النهائية لإنهاء أخطاء الـ Build
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
   ar: {
-    // === القوائم الأساسية ===
+    // === التنقل والقوائم ===
     home: 'الرئيسية',
     shop: 'المتجر',
     abayas: 'عباءات',
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === الحساب والمصادقة ===
+    // === تسجيل الدخول والحساب ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -82,7 +82,7 @@ export const translations = {
     orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
     // === إتمام الطلب والشحن (Checkout) ===
-    checkout: 'إتمام الطلب', // ✅ المفتاح الذي سبب الخطأ الأخير
+    checkout: 'إتمام الطلب',
     shippingAddress: 'عنوان الشحن',
     paymentMethod: 'طريقة الدفع',
     reviewOrder: 'مراجعة الطلب',
@@ -91,6 +91,8 @@ export const translations = {
     address: 'العنوان بالتفصيل',
     postalCode: 'الرمز البريدي',
     saveAddress: 'حفظ هذا العنوان',
+    savedAddresses: 'عناويني المحفوظة', // ✅ المفتاح الذي سبب الخطأ الأخير
+    addAddress: 'عنوان جديد',         // ✅ المفتاح المطلوب أيضاً
     selectAddressError: 'يرجى اختيار عنوان الشحن أولاً',
     fillRequiredFields: 'الرجاء ملء جميع الحقول المطلوبة',
     invalidPhone: 'رقم الهاتف غير صحيح',
@@ -113,11 +115,11 @@ export const translations = {
     addToCart: 'أضف للسلة',
     addToWishlist: 'أضف للمفضلة',
     items: 'عناصر',
+    products: 'منتجات',
+    product: 'منتج',
     remove: 'إزالة',
 
     // === المنتجات والمراجعات ===
-    product: 'منتج',
-    products: 'منتجات',
     reviews: 'تقييم',
     description: 'الوصف',
     inStock: 'متوفر',
@@ -213,7 +215,7 @@ export const translations = {
     orderPlacedSuccessfully: 'Order Placed Successfully!',
     orderWillBeShipped: 'Thank you! Your order has been received and will be processed soon.',
 
-    checkout: 'Checkout', // ✅ المفتاح الذي سبب الخطأ الأخير
+    checkout: 'Checkout',
     shippingAddress: 'Shipping Address',
     paymentMethod: 'Payment Method',
     reviewOrder: 'Review Order',
@@ -222,6 +224,8 @@ export const translations = {
     address: 'Detailed Address',
     postalCode: 'Postal Code',
     saveAddress: 'Save Address',
+    savedAddresses: 'Saved Addresses', // ✅ المفتاح المطلوب
+    addAddress: 'Add New Address',      // ✅ المفتاح المطلوب
     selectAddressError: 'Please select an address first',
     fillRequiredFields: 'Please fill all required fields',
     invalidPhone: 'Invalid phone number',
@@ -243,10 +247,10 @@ export const translations = {
     addToCart: 'Add to Cart',
     addToWishlist: 'Add to Wishlist',
     items: 'items',
+    products: 'Products',
+    product: 'Product',
     remove: 'Remove',
 
-    product: 'Product',
-    products: 'Products',
     reviews: 'Reviews',
     description: 'Description',
     inStock: 'In Stock',
