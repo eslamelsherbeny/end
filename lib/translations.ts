@@ -21,7 +21,9 @@ export const translations = {
     topRated: 'الأعلى تقييماً',
     flashSale: 'عرض محدود', // === البحث والبار العلوي (Search & Top Bar) ===
     welcomeBack: 'مرحباً بعودتك',
-
+orders: 'طلبات',        // ✅ إضافة هذا المفتاح
+    myOrders: 'طلباتي',     // تأكد من وجود هذا أيضاً
+    noResults: 'لا توجد نتائج',
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -220,6 +222,9 @@ export const translations = {
     discount: '20% off on new collection',
     viewAll: 'View All',
     loading: 'Loading...',
+    orders: 'Orders',       // ✅ إضافة هذا المفتاح
+    myOrders: 'My Orders',
+    noResults: 'No results found',
     noResults: 'No results found',
     results: 'Results',
     product: 'Product',
