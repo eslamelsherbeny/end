@@ -1,4 +1,4 @@
-export type TranslationKey = keyof typeof translations.en
+uiexport type TranslationKey = keyof typeof translations.en
 
 export const translations = {
   ar: {
@@ -23,7 +23,15 @@ export const translations = {
     welcomeBack: 'مرحباً بعودتك',
 orders: 'طلبات',        // ✅ إضافة هذا المفتاح
     myOrders: 'طلباتي',     // تأكد من وجود هذا أيضاً
-    noResults: 'لا توجد نتائج',
+    noResults: 'لا توجد نتائج',tryAgain: 'حاول البحث بفلتر آخر',      // ✅ المفتاح الذي سبب الخطأ
+    cartEmpty: 'لا توجد منتجات حالياً',   // تم استخدامه في الكود الخاص بك أيضاً
+    noOrders: 'لم تقم بإجراء أي طلبات بعد',
+    orderId: 'رقم الطلب',
+    orderDate: 'تاريخ الطلب',
+    status: 'الحالة',
+    totalAmount: 'الإجمالي',
+    viewDetails: 'عرض التفاصيل',
+    startShopping: 'ابدأ التسوق الآن',
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -296,7 +304,15 @@ orders: 'طلبات',        // ✅ إضافة هذا المفتاح
     within24Hours: 'Within 24 hours',
     within3To5Days: 'Within 3-5 days',
     needHelp: 'Need help?',
-    stayUpdated: 'Subscribe to our Newsletter',
+    stayUpdated: 'Subscribe to our Newsletter',tryAgain: 'Try searching with another filter', // ✅ المفتاح الذي سبب الخطأ
+    cartEmpty: 'No products found',
+    noOrders: 'You haven\'t placed any orders yet',
+    orderId: 'Order ID',
+    orderDate: 'Order Date',
+    status: 'Status',
+    totalAmount: 'Total Amount',
+    viewDetails: 'View Details',
+    startShopping: 'Start Shopping Now',
     getExclusiveOffers:
       'Get the latest offers and products directly in your inbox',
     enterEmail: 'Enter your email address',
