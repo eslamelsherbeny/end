@@ -1,4 +1,4 @@
-// ✅ translations.ts - النسخة الشاملة لمنع كافة أخطاء الـ Build في السلة والحساب
+// ✅ translations.ts - النسخة النهائية الشاملة (المتجر + السلة + الحساب + الشحن والدفع)
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === الحساب والمصادقة (Auth) ===
+    // === تسجيل الدخول والحساب ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -81,9 +81,24 @@ export const translations = {
     orderPlacedSuccessfully: 'تم إنشاء الطلب بنجاح!',
     orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
+    // === إتمام الطلب والشحن (Checkout - الحل للأخطاء الحالية) ===
+    shippingAddress: 'عنوان الشحن', // ✅ المفتاح الذي سبب الخطأ
+    paymentMethod: 'طريقة الدفع',   // ✅ مفتاح الخطأ التالي
+    reviewOrder: 'مراجعة الطلب',    // ✅ مفتاح الخطأ التالي
+    placeOrder: 'تأكيد الطلب',
+    city: 'المدينة',
+    address: 'العنوان بالتفصيل',
+    postalCode: 'الرمز البريدي',
+    saveAddress: 'حفظ هذا العنوان',
+    selectAddressError: 'يرجى اختيار عنوان الشحن',
+    fillRequiredFields: 'يرجى ملء جميع الحقول المطلوبة',
+    cash: 'دفع عند الاستلام',
+    card: 'بطاقة ائتمان',
+    fawry: 'فوري',
+
     // === سلة التسوق والكوبونات ===
     shoppingCart: 'سلة التسوق',
-    orderSummary: 'ملخص الطلب', // ✅ المفتاح الذي سبب الخطأ الأخير
+    orderSummary: 'ملخص الطلب',
     enterCoupon: 'أدخل كود الخصم',
     applyCoupon: 'تطبيق',
     couponCode: 'كود الخصم',
@@ -194,8 +209,23 @@ export const translations = {
     orderPlacedSuccessfully: 'Order Placed Successfully!',
     orderWillBeShipped: 'Thank you! Your order has been received and will be processed soon.',
 
+    // === Checkout (English) ===
+    shippingAddress: 'Shipping Address',
+    paymentMethod: 'Payment Method',
+    reviewOrder: 'Review Order',
+    placeOrder: 'Place Order',
+    city: 'City',
+    address: 'Detailed Address',
+    postalCode: 'Postal Code',
+    saveAddress: 'Save Address',
+    selectAddressError: 'Please select a shipping address',
+    fillRequiredFields: 'Please fill all required fields',
+    cash: 'Cash on Delivery',
+    card: 'Credit Card',
+    fawry: 'Fawry',
+
     shoppingCart: 'Shopping Cart',
-    orderSummary: 'Order Summary', // ✅ المفتاح الذي سبب الخطأ الأخير
+    orderSummary: 'Order Summary',
     enterCoupon: 'Enter coupon code',
     applyCoupon: 'Apply',
     couponCode: 'Coupon Code',
