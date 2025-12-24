@@ -22,6 +22,9 @@ export const translations = {
     topRated: 'الأعلى تقييماً',
     flashSale: 'عرض محدود',
     brandName: 'أيمن بشير',
+    emptyCart: 'السلة فارغة',        // ✅ أضف هذا السطر (المفتاح الذي سبب الخطأ)
+  cartEmpty: 'لا توجد منتجات في السلة حالياً', // وهذا أيضاً للتأكيد
+  startShopping: 'ابدأ التسوق الآن',
 
     // === البحث والبار العلوي ===
     search: 'ابحث عن المنتجات المفضلة...',
@@ -214,7 +217,9 @@ export const translations = {
   couponApplied: 'Coupon applied successfully',
   removeCoupon: 'Remove Coupon',
   summary: 'Order Summary',
-  checkout: 'Checkout',
+  checkout: 'Checkout',emptyCart: 'Your cart is empty', // ✅ أضف هذا السطر
+  cartEmpty: 'No products in cart yet',
+  startShopping: 'Start Shopping Now',
 
     welcomeBack: 'Welcome Back',
     fullName: 'Full Name',
