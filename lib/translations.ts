@@ -1,4 +1,4 @@
-// ✅ translations.ts - النسخة الشاملة النهائية لإنهاء أخطاء الـ Build
+// ✅ translations.ts - النسخة الشاملة النهائية لإنهاء أخطاء الـ Build تماماً
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === تسجيل الدخول والحساب ===
+    // === الحساب والمصادقة (Auth) ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -58,7 +58,7 @@ export const translations = {
     acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام للمتابعة',
     signupFailed: 'عذراً، فشل إنشاء الحساب. حاول مرة أخرى',
 
-    // === الطلبات ===
+    // === الطلبات (Orders) ===
     orders: 'طلبات',
     myOrders: 'طلباتي',
     allCategories: 'الكل',
@@ -91,8 +91,8 @@ export const translations = {
     address: 'العنوان بالتفصيل',
     postalCode: 'الرمز البريدي',
     saveAddress: 'حفظ هذا العنوان',
-    savedAddresses: 'عناويني المحفوظة', // ✅ المفتاح الذي سبب الخطأ الأخير
-    addAddress: 'عنوان جديد',         // ✅ المفتاح المطلوب أيضاً
+    savedAddresses: 'عناويني المحفوظة',
+    addAddress: 'عنوان جديد',
     selectAddressError: 'يرجى اختيار عنوان الشحن أولاً',
     fillRequiredFields: 'الرجاء ملء جميع الحقول المطلوبة',
     invalidPhone: 'رقم الهاتف غير صحيح',
@@ -100,6 +100,9 @@ export const translations = {
     cash: 'دفع عند الاستلام',
     card: 'بطاقة ائتمان',
     fawry: 'فوري',
+    next: 'التالي',
+    previous: 'السابق',
+    edit: 'تعديل', // ✅ المفتاح الذي سبب الخطأ الأخير
 
     // === سلة التسوق والكوبونات ===
     shoppingCart: 'سلة التسوق',
@@ -224,8 +227,8 @@ export const translations = {
     address: 'Detailed Address',
     postalCode: 'Postal Code',
     saveAddress: 'Save Address',
-    savedAddresses: 'Saved Addresses', // ✅ المفتاح المطلوب
-    addAddress: 'Add New Address',      // ✅ المفتاح المطلوب
+    savedAddresses: 'Saved Addresses',
+    addAddress: 'Add New Address',
     selectAddressError: 'Please select an address first',
     fillRequiredFields: 'Please fill all required fields',
     invalidPhone: 'Invalid phone number',
@@ -233,6 +236,9 @@ export const translations = {
     cash: 'Cash on Delivery',
     card: 'Credit Card',
     fawry: 'Fawry',
+    next: 'Next',
+    previous: 'Previous',
+    edit: 'Edit', // ✅ المفتاح المطلوب
 
     shoppingCart: 'Shopping Cart',
     orderSummary: 'Order Summary',
