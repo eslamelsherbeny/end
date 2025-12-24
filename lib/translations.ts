@@ -69,7 +69,14 @@ export const translations = {
     qualityProducts: 'خامات عالية الجودة',
     color: 'اللون',
     size: 'المقاس',
-    sizes: 'المقاسات',
+    sizes: 'المقاسات',enterCoupon: 'برجاء إدخال كود الخصم',    // ✅ المفتاح الذي سبب الخطأ الأخير
+  applyCoupon: 'تطبيق الخصم',
+  couponCode: 'كود الخصم',
+  invalidCoupon: 'كود الخصم غير صحيح',
+  couponApplied: 'تم تطبيق الخصم بنجاح',
+  removeCoupon: 'إزالة الكود',
+  summary: 'ملخص الطلب',
+  checkout: 'إتمام الشراء',
 
     // === الحساب والمصادقة (Auth) ===
     welcomeBack: 'مرحباً بعودتك',
@@ -200,7 +207,14 @@ export const translations = {
     qualityProducts: 'Premium Quality Materials',
     color: 'Color',
     size: 'Size',
-    sizes: 'Sizes',
+    sizes: 'Sizes',enterCoupon: 'Please enter coupon code', // ✅ المفتاح الذي سبب الخطأ الأخير
+  applyCoupon: 'Apply Coupon',
+  couponCode: 'Coupon Code',
+  invalidCoupon: 'Invalid coupon code',
+  couponApplied: 'Coupon applied successfully',
+  removeCoupon: 'Remove Coupon',
+  summary: 'Order Summary',
+  checkout: 'Checkout',
 
     welcomeBack: 'Welcome Back',
     fullName: 'Full Name',
