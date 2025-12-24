@@ -1,4 +1,4 @@
-// ✅ translations.ts - النسخة النهائية المعتمدة لإنهاء كافة أخطاء الـ Build
+// ✅ translations.ts - النسخة النهائية المكتملة والمصلحة لجميع أخطاء الـ Build
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -79,7 +79,7 @@ export const translations = {
 
     // === السلة والكوبونات (Cart & Coupons) ===
     shoppingCart: 'سلة التسوق',
-    enterCoupon: 'أدخل كود الخصم', // ✅ المفتاح المطلوب الآن
+    enterCoupon: 'أدخل كود الخصم',
     applyCoupon: 'تطبيق',
     couponCode: 'كود الخصم',
     proceedToCheckout: 'إتمام الطلب',
@@ -91,6 +91,8 @@ export const translations = {
     addToWishlist: 'أضف للمفضلة',
 
     // === تفاصيل المنتج ===
+    product: 'منتج',    // ✅ أضفنا هذا
+    products: 'منتجات', // ✅ وهذا هو المفتاح الذي تسبب في الخطأ
     reviews: 'تقييم',
     description: 'الوصف',
     inStock: 'متوفر',
@@ -181,7 +183,7 @@ export const translations = {
     cancelled: 'Cancelled',
 
     shoppingCart: 'Shopping Cart',
-    enterCoupon: 'Enter coupon code', // ✅ المفتاح المطلوب الآن
+    enterCoupon: 'Enter coupon code',
     applyCoupon: 'Apply',
     couponCode: 'Coupon Code',
     proceedToCheckout: 'Checkout',
@@ -192,6 +194,8 @@ export const translations = {
     addToCart: 'Add to Cart',
     addToWishlist: 'Add to Wishlist',
 
+    product: 'Product',   // ✅ أضفنا هذا
+    products: 'Products', // ✅ وهذا هو المفتاح الذي تسبب في الخطأ
     reviews: 'Reviews',
     description: 'Description',
     inStock: 'In Stock',
