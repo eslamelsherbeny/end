@@ -1,4 +1,4 @@
-// ✅ lib/translations.ts - النسخة الشاملة النهائية لجميع صفحات الموقع
+// ✅ lib/translations.ts - النسخة الشاملة النهائية لإنهاء كافة أخطاء النوع
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -26,52 +26,80 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === الحساب والطلبات (مهم لصفحة Orders) ===
-    myOrders: 'طلباتي',               // ✅ موجود
-    orderNumber: 'رقم الطلب',          // ✅ موجود
-    orderConfirmation: 'تأكيد الطلب',   // ✅ موجود
-    noOrders: 'لم تقم بإجراء أي طلبات بعد', // ✅ موجود
-    viewDetails: 'عرض التفاصيل',       // ✅ موجود
-    orderDate: 'تاريخ الطلب',
-    status: 'الحالة',
-    totalAmount: 'الإجمالي',
-    pending: 'قيد الانتظار',           // ✅ موجود
-    processing: 'جاري التجهيز',        // ✅ موجود
-    shipped: 'تم الشحن',              // ✅ موجود
-    delivered: 'تم التوصيل',           // ✅ موجود
-    cancelled: 'ملغي',                // ✅ موجود
-    cash: 'دفع عند الاستلام',           // ✅ موجود
-    card: 'بطاقة ائتمان',              // ✅ موجود
-    tryAgain: 'حاول البحث بفلتر آخر',
-
-    // === سلة التسوق (Cart) ===
-    shoppingCart: 'سلة التسوق',
-    cartEmpty: 'لا توجد منتجات حالياً',   // ✅ موجود
-    emptyCart: 'السلة فارغة',
-    startShopping: 'ابدأ التسوق الآن',   // ✅ موجود
-    orderSummary: 'ملخص الطلب',
-    subtotal: 'المجموع الفرعي',
-    total: 'الإجمالي',
-    shipping: 'الشحن',
-    currency: 'جنيه',
-
-    // === تسجيل الدخول وإنشاء الحساب ===
+    // === تسجيل الدخول والحساب ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
+    confirmPassword: 'تأكيد كلمة المرور',
     fullName: 'الاسم الكامل',
     phone: 'رقم الهاتف',
+    optional: 'اختياري',
     welcomeBack: 'مرحباً بعودتك',
+    forgotPassword: 'نسيت كلمة المرور؟',
+    or: 'أو',
+    dontHaveAccount: 'ليس لديك حساب؟',
+    signUpNow: 'أنشئ حساباً الآن',
+    alreadyHaveAccount: 'لديك حساب بالفعل؟',
+    loginNow: 'سجل الدخول الآن',
+    createAccount: 'إنشاء حساب جديد',
+    agreeTerms: 'أوافق على الشروط والأحكام',
     loginSuccess: 'تم تسجيل الدخول بنجاح',
     signupSuccess: 'تم إنشاء الحساب بنجاح',
     error: 'خطأ',
     success: 'تم بنجاح',
+    pleaseTryAgain: 'يرجى المحاولة مرة أخرى', // ✅ المفتاح الذي سبب الخطأ الأخير
+
+    // === الطلبات (Orders) ===
+    myOrders: 'طلباتي',
+    orderNumber: 'رقم الطلب',
+    orderConfirmation: 'تأكيد الطلب',
+    noOrders: 'لم تقم بإجراء أي طلبات بعد',
+    viewDetails: 'عرض التفاصيل',
+    status: 'الحالة',
+    totalAmount: 'الإجمالي',
+    pending: 'قيد الانتظار',
+    processing: 'جاري التجهيز',
+    shipped: 'تم الشحن',
+    delivered: 'تم التوصيل',
+    cancelled: 'ملغي',
+    cash: 'دفع عند الاستلام',
+    card: 'بطاقة ائتمان',
+    tryAgain: 'حاول البحث بفلتر آخر',
+
+    // === سلة التسوق والكوبونات ===
+    shoppingCart: 'سلة التسوق',
+    orderSummary: 'ملخص الطلب',
+    enterCoupon: 'أدخل كود الخصم',
+    applyCoupon: 'تطبيق',
+    couponCode: 'كود الخصم',
+    subtotal: 'المجموع الفرعي',
+    total: 'الإجمالي',
+    shipping: 'الشحن',
+    currency: 'جنيه',
+    cartEmpty: 'السلة فارغة حالياً',
+    emptyCart: 'السلة فارغة',
+    startShopping: 'ابدأ التسوق الآن',
+    proceedToCheckout: 'إتمام الطلب',
+    addToCart: 'أضف للسلة',
+    addToWishlist: 'أضف للمفضلة',
+    items: 'عناصر',
+    products: 'منتجات',
+    product: 'منتج',
+
+    // === إتمام الطلب (Checkout) ===
+    checkout: 'إتمام الطلب',
+    shippingAddress: 'عنوان الشحن',
+    paymentMethod: 'طريقة الدفع',
+    reviewOrder: 'مراجعة الطلب',
+    saveAddress: 'حفظ العنوان',
+    savedAddresses: 'العناوين المحفوظة',
+    addAddress: 'إضافة عنوان جديد',
+    shippingDelivery: 'الشحن والتوصيل',
+    fastDelivery: 'توصيل سريع خلال 3-5 أيام',
 
     // === أخرى ===
     edit: 'تعديل',
     next: 'التالي',
     previous: 'السابق',
-    saveAddress: 'حفظ العنوان',
-    shippingAddress: 'عنوان الشحن',
     qualityProducts: 'خامات عالية الجودة'
   },
 
@@ -97,12 +125,32 @@ export const translations = {
     noResults: 'No results found',
     results: 'Results',
 
+    email: 'Email Address',
+    password: 'Password',
+    confirmPassword: 'Confirm Password',
+    fullName: 'Full Name',
+    phone: 'Phone Number',
+    optional: 'Optional',
+    welcomeBack: 'Welcome Back',
+    forgotPassword: 'Forgot Password?',
+    or: 'Or',
+    dontHaveAccount: "Don't have an account?",
+    signUpNow: 'Sign up now',
+    alreadyHaveAccount: 'Already have an account?',
+    loginNow: 'Login now',
+    createAccount: 'Create account',
+    agreeTerms: 'I agree to terms',
+    loginSuccess: 'Login Successful',
+    signupSuccess: 'Signup Successful',
+    error: 'Error',
+    success: 'Success',
+    pleaseTryAgain: 'Please try again', // ✅ مضاف
+
     myOrders: 'My Orders',
     orderNumber: 'Order Number',
     orderConfirmation: 'Order Confirmation',
-    noOrders: 'You have no orders yet',
+    noOrders: 'No orders yet',
     viewDetails: 'View Details',
-    orderDate: 'Order Date',
     status: 'Status',
     totalAmount: 'Total Amount',
     pending: 'Pending',
@@ -115,30 +163,37 @@ export const translations = {
     tryAgain: 'Try another filter',
 
     shoppingCart: 'Shopping Cart',
-    cartEmpty: 'Your cart is empty',
-    emptyCart: 'Empty Cart',
-    startShopping: 'Start Shopping Now',
     orderSummary: 'Order Summary',
+    enterCoupon: 'Enter coupon code',
+    applyCoupon: 'Apply',
+    couponCode: 'Coupon Code',
     subtotal: 'Subtotal',
     total: 'Total',
     shipping: 'Shipping',
     currency: 'EGP',
+    cartEmpty: 'Your cart is empty',
+    emptyCart: 'Empty Cart',
+    startShopping: 'Start Shopping Now',
+    proceedToCheckout: 'Checkout',
+    addToCart: 'Add to Cart',
+    addToWishlist: 'Add to Wishlist',
+    items: 'items',
+    products: 'Products',
+    product: 'Product',
 
-    email: 'Email Address',
-    password: 'Password',
-    fullName: 'Full Name',
-    phone: 'Phone Number',
-    welcomeBack: 'Welcome Back',
-    loginSuccess: 'Login Successful',
-    signupSuccess: 'Signup Successful',
-    error: 'Error',
-    success: 'Success',
+    checkout: 'Checkout',
+    shippingAddress: 'Shipping Address',
+    paymentMethod: 'Payment Method',
+    reviewOrder: 'Review Order',
+    saveAddress: 'Save Address',
+    savedAddresses: 'Saved Addresses',
+    addAddress: 'Add New Address',
+    shippingDelivery: 'Shipping & Delivery',
+    fastDelivery: 'Fast Delivery',
 
     edit: 'Edit',
     next: 'Next',
     previous: 'Previous',
-    saveAddress: 'Save Address',
-    shippingAddress: 'Shipping Address',
     qualityProducts: 'Quality Products'
   }
 }
