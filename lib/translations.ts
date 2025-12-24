@@ -3,7 +3,7 @@ export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
   ar: {
-    // === التنقل والقوائم (Navigation) ===
+    // === التنقل والقوائم ===
     home: 'الرئيسية',
     shop: 'المتجر',
     abayas: 'عباءات',
@@ -17,13 +17,9 @@ export const translations = {
     signup: 'إنشاء حساب',
     logout: 'تسجيل الخروج',
     categories: 'الأقسام',
-    newArrivals: 'وصل حديثاً',
-    bestSellers: 'الأكثر مبيعاً',
-    topRated: 'الأعلى تقييماً',
-    flashSale: 'عرض محدود',
     brandName: 'أيمن بشير',
 
-    // === البحث والبار العلوي (Search & Top Bar) ===
+    // === البحث والبار العلوي ===
     search: 'ابحث عن المنتجات المفضلة...',
     searchProducts: 'ابحث عن المنتجات...',
     freeShipping: 'شحن مجاني للطلبات فوق 500 جنيه',
@@ -48,13 +44,17 @@ export const translations = {
     alreadyHaveAccount: 'لديك حساب بالفعل؟',
     loginNow: 'سجل الدخول الآن',
     createAccount: 'إنشاء حساب جديد',
+    agreeTerms: 'أوافق على', // ✅ المفتاح الذي سبب الخطأ
+    terms: 'الشروط والأحكام',
+    and: 'و',
+    privacy: 'سياسة الخصوصية',
     loginAgreement: 'بتسجيل الدخول، أنت توافق على شروط الخدمة وسياسة الخصوصية',
     signupAgreement: 'بإنشاء حساب، أنت توافق على شروط الخدمة وسياسة الخصوصية',
     loginSuccess: 'تم تسجيل الدخول بنجاح',
     signupSuccess: 'تم إنشاء الحساب بنجاح',
     welcomeMessage: 'مرحباً بك في متجر أيمن بشير',
-    passwordMismatch: 'كلمات المرور غير متطابقة', // ✅ المفتاح الذي سبب الخطأ
-    acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام', // ✅ مفتاح احتياطي
+    passwordMismatch: 'كلمات المرور غير متطابقة',
+    acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام للمتابعة',
     signupFailed: 'عذراً، فشل إنشاء الحساب. حاول مرة أخرى',
 
     // === الطلبات (Orders) ===
@@ -137,6 +137,7 @@ export const translations = {
     fastDeliveryInfo: 'توصيل سريع 3-5 أيام',
     easyReturns: 'إرجاع سهل خلال 14 يوم',
     qualityProducts: 'خامات عالية الجودة',
+    privacyPolicy: 'سياسة الخصوصية',
   },
 
   en: {
@@ -182,13 +183,17 @@ export const translations = {
     alreadyHaveAccount: 'Already have an account?',
     loginNow: 'Login now',
     createAccount: 'Create account',
+    agreeTerms: 'I agree to', // ✅ مضاف
+    terms: 'Terms & Conditions', // ✅ مضاف
+    and: 'and', // ✅ مضاف
+    privacy: 'Privacy Policy', // ✅ مضاف
     loginAgreement: 'By logging in, you agree to our Terms and Privacy Policy',
     signupAgreement: 'By creating an account, you agree to our Terms and Privacy Policy',
     loginSuccess: 'Login Successful',
     signupSuccess: 'Account Created Successfully',
     welcomeMessage: 'Welcome to Ayman Besher Store',
-    passwordMismatch: 'Passwords do not match', // ✅ مضاف
-    acceptTermsRequired: 'You must accept the terms and conditions', // ✅ مضاف
+    passwordMismatch: 'Passwords do not match',
+    acceptTermsRequired: 'You must accept the terms and conditions',
     signupFailed: 'Sorry, sign up failed. Please try again',
 
     orders: 'Orders',
@@ -196,7 +201,6 @@ export const translations = {
     allCategories: 'All',
     tryAgain: 'Try another filter',
     cartEmpty: 'Your cart is empty',
-    noOrders: 'No orders yet',
     orderId: 'Order ID',
     orderDate: 'Order Date',
     status: 'Status',
@@ -269,5 +273,6 @@ export const translations = {
     fastDeliveryInfo: 'Fast Delivery 3-5 Days',
     easyReturns: 'Easy 14-Day Returns',
     qualityProducts: 'Quality Products',
+    privacyPolicy: 'Privacy Policy',
   }
 }
