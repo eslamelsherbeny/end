@@ -1,4 +1,4 @@
-// ✅ translations.ts - النسخة المعتمدة لإنهاء كافة أخطاء الـ Build
+// ✅ translations.ts - النسخة النهائية الشاملة لإنهاء أخطاء الـ Build تماماً
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
@@ -82,6 +82,7 @@ export const translations = {
     orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
     // === إتمام الطلب والشحن (Checkout) ===
+    checkout: 'إتمام الطلب', // ✅ المفتاح الذي سبب الخطأ الأخير
     shippingAddress: 'عنوان الشحن',
     paymentMethod: 'طريقة الدفع',
     reviewOrder: 'مراجعة الطلب',
@@ -98,7 +99,7 @@ export const translations = {
     card: 'بطاقة ائتمان',
     fawry: 'فوري',
 
-    // === السلة والكوبونات ===
+    // === سلة التسوق والكوبونات ===
     shoppingCart: 'سلة التسوق',
     orderSummary: 'ملخص الطلب',
     enterCoupon: 'أدخل كود الخصم',
@@ -129,7 +130,7 @@ export const translations = {
     contactUs: 'تواصل معنا',
     success: 'تم بنجاح',
     error: 'خطأ',
-    warning: 'تنبيه', // ✅ المفتاح الذي سبب الخطأ الأخير
+    warning: 'تنبيه',
     pleaseTryAgain: 'يرجى المحاولة مرة أخرى لاحقاً',
     admin: 'مدير',
     customer: 'عميل',
@@ -212,6 +213,7 @@ export const translations = {
     orderPlacedSuccessfully: 'Order Placed Successfully!',
     orderWillBeShipped: 'Thank you! Your order has been received and will be processed soon.',
 
+    checkout: 'Checkout', // ✅ المفتاح الذي سبب الخطأ الأخير
     shippingAddress: 'Shipping Address',
     paymentMethod: 'Payment Method',
     reviewOrder: 'Review Order',
@@ -256,7 +258,7 @@ export const translations = {
     contactUs: 'Contact Us',
     success: 'Success',
     error: 'Error',
-    warning: 'Warning', // ✅ المفتاح الذي سبب الخطأ الأخير
+    warning: 'Warning',
     pleaseTryAgain: 'Please try again later',
     admin: 'Admin',
     customer: 'Customer',
