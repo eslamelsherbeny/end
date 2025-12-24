@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { 
   Package, 
-  ChevronLeft, 
-  ChevronRight, 
   Search, 
   Calendar, 
   CreditCard,
@@ -17,46 +15,24 @@ import {
   XCircle
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { formatPrice } from '@/lib/utils'
 import { ordersAPI } from '@/lib/api'
 import { useTranslation } from '@/hooks/use-translation'
 
-// ✅ تم إصلاح نوع t ليكون any لتجاوز خطأ الـ Build
+// دالة عرض حالة الطلب - تم استخدام any لتجاوز تعارض الأنواع في Vercel
 const getStatusBadge = (status: string, t: any) => {
   const statusConfig: Record<string, { label: string; className: string; icon: any }> = {
-    pending: {
-      label: t('pending'),
-      className: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-      icon: Clock,
-    },
-    processing: {
-      label: t('processing'),
-      className: 'bg-blue-100 text-blue-800 border-blue-200',
-      icon: Package,
-    },
-    shipped: {
-      label: t('shipped'),
-      className: 'bg-purple-100 text-purple-800 border-purple-200',
-      icon: Truck,
-    },
-    delivered: {
-      label: t('delivered'),
-      className: 'bg-green-100 text-green-800 border-green-200',
-      icon: CheckCircle2,
-    },
-    cancelled: {
-      label: t('cancelled'),
-      className: 'bg-red-100 text-red-800 border-red-200',
-      icon: XCircle,
-    },
+    pending: { label: t('pending'), className: 'bg-yellow-100 text-yellow-800 border-yellow-200', icon: Clock },
+    processing: { label: t('processing'), className: 'bg-blue-100 text-blue-800 border-blue-200', icon: Package },
+    shipped: { label: t('shipped'), className: 'bg-purple-100 text-purple-800 border-purple-200', icon: Truck },
+    delivered: { label: t('delivered'), className: 'bg-green-100 text-green-800 border-green-200', icon: CheckCircle2 },
+    cancelled: { label: t('cancelled'), className: 'bg-red-100 text-red-800 border-red-200', icon: XCircle },
   }
-
   const config = statusConfig[status] || statusConfig.pending
   const Icon = config.icon
-
   return (
     <Badge className={`${config.className} flex items-center gap-1`} variant='outline'>
       <Icon className='h-3 w-3' />
@@ -137,9 +113,8 @@ export default function OrdersPage() {
           {filteredOrders.map((order) => (
             <Card key={order._id} className="overflow-hidden hover:border-primary/50 transition-colors">
               <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Order Main Info */}
-                  <div className="flex-1 p-4 sm:p-6 space-y-4">
+                <div className="flex flex-col md:flex-row p-4 sm:p-6 space-y-4">
+                  <div className="flex-1 space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="space-y-1">
                         <h3 className="font-bold flex items-center gap-2">
@@ -154,39 +129,18 @@ export default function OrdersPage() {
                         </Button>
                       </Link>
                     </div>
-
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <Calendar className="h-4 w-4" />
-                        <span>{new Date(order.createdAt).toLocaleDateString('ar-EG')}</span>
+                        <span>{new Date(order.createdAt).toLocaleDateString(isRTL ? 'ar-EG' : 'en-US')}</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <CreditCard className="h-4 w-4" />
                         <span>{order.paymentMethodType === 'cash' ? t('cash') : t('card')}</span>
                       </div>
-                      <div className="font-bold text-primary sm:text-left">
+                      <div className="font-bold text-primary">
                         {formatPrice(order.totalOrderPrice)}
                       </div>
-                    </div>
-
-                    {/* Products Preview */}
-                    <div className="flex gap-2 overflow-x-auto pb-2">
-                      {order.cartItems?.slice(0, 4).map((item: any, idx: number) => (
-                        <div key={idx} className="relative w-12 h-12 rounded-md border bg-muted flex-shrink-0">
-                          {item.product?.imageCover && (
-                             <img 
-                              src={item.product.imageCover} 
-                              alt="" 
-                              className="w-full h-full object-cover rounded-md"
-                            />
-                          )}
-                        </div>
-                      ))}
-                      {(order.cartItems?.length || 0) > 4 && (
-                        <div className="w-12 h-12 rounded-md border bg-muted flex items-center justify-center text-xs font-medium text-muted-foreground">
-                          +{(order.cartItems?.length || 0) - 4}
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
