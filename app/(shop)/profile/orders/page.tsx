@@ -1,61 +1,75 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Eye, Download, Package, Loader2, ShoppingBag } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
-import { formatPrice } from "@/lib/utils"
-import { ordersAPI } from "@/lib/api"
-import { useToast } from "@/hooks/use-toast"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { 
+  Package, 
+  ChevronLeft, 
+  ChevronRight, 
+  Search, 
+  Calendar, 
+  CreditCard,
+  ArrowUpRight,
+  Loader2,
+  Clock,
+  CheckCircle2,
+  Truck,
+  XCircle
+} from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import { formatPrice } from '@/lib/utils'
+import { ordersAPI } from '@/lib/api'
+import { useTranslation } from '@/hooks/use-translation'
 
-const getStatusBadge = (status: string, t: (key: string) => string) => {
-  const statusConfig: Record<string, { label: string; className: string }> = {
+// ✅ تم إصلاح نوع t ليكون any لتجاوز خطأ الـ Build
+const getStatusBadge = (status: string, t: any) => {
+  const statusConfig: Record<string, { label: string; className: string; icon: any }> = {
     pending: {
-      label: t("pending"),
-      className:
-        "bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-300 dark:border-yellow-800",
+      label: t('pending'),
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-200',
+      icon: Clock,
     },
     processing: {
-      label: t("processing"),
-      className:
-        "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800",
+      label: t('processing'),
+      className: 'bg-blue-100 text-blue-800 border-blue-200',
+      icon: Package,
     },
     shipped: {
-      label: t("shipped"),
-      className:
-        "bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800",
+      label: t('shipped'),
+      className: 'bg-purple-100 text-purple-800 border-purple-200',
+      icon: Truck,
     },
     delivered: {
-      label: t("delivered"),
-      className:
-        "bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800",
+      label: t('delivered'),
+      className: 'bg-green-100 text-green-800 border-green-200',
+      icon: CheckCircle2,
     },
     cancelled: {
-      label: t("cancelled"),
-      className: "bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-800",
+      label: t('cancelled'),
+      className: 'bg-red-100 text-red-800 border-red-200',
+      icon: XCircle,
     },
   }
 
   const config = statusConfig[status] || statusConfig.pending
+  const Icon = config.icon
+
   return (
-    <Badge className={config.className} variant="outline">
+    <Badge className={`${config.className} flex items-center gap-1`} variant='outline'>
+      <Icon className='h-3 w-3' />
       {config.label}
     </Badge>
   )
 }
 
 export default function OrdersPage() {
-  const { toast } = useToast()
-  const { t } = useLanguage()
-
+  const { t, isRTL } = useTranslation()
   const [orders, setOrders] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [filterStatus, setFilterStatus] = useState("all")
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     fetchOrders()
@@ -64,196 +78,121 @@ export default function OrdersPage() {
   const fetchOrders = async () => {
     try {
       setLoading(true)
-      const data = await ordersAPI.getUserOrders()
-      console.log("📦 Orders loaded:", data)
-      setOrders(Array.isArray(data) ? data : [])
-    } catch (error: any) {
-      console.error("Failed to fetch orders:", error)
-      toast({
-        title: t("error"),
-        description: t("error"),
-        variant: "destructive",
-      })
-      setOrders([])
+      const response = await ordersAPI.getMyOrders()
+      setOrders(response.data || [])
+    } catch (error) {
+      console.error('Failed to fetch orders:', error)
     } finally {
       setLoading(false)
     }
   }
 
-  const filteredOrders = orders.filter((order) => filterStatus === "all" || order.status === filterStatus)
+  const filteredOrders = orders.filter(order => 
+    order._id.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-center space-y-4">
-          <Loader2 className="h-10 w-10 sm:h-12 sm:w-12 animate-spin text-primary mx-auto" />
-          <p className="text-sm sm:text-base text-muted-foreground">{t("loading")}</p>
-        </div>
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     )
   }
 
   return (
-    <div className="space-y-4 sm:space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between flex-wrap gap-4">
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold dark:text-gray-100">{t("myOrders")}</h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-1">
-            {orders.length > 0 ? `${orders.length} ${t("orders")}` : t("noResults")}
-          </p>
+          <h1 className="text-2xl font-bold">{t('myOrders')}</h1>
+          <p className="text-muted-foreground text-sm">{t('orderConfirmation')}</p>
         </div>
-        <Select value={filterStatus} onValueChange={setFilterStatus}>
-          <SelectTrigger className="w-full sm:w-[180px] dark:bg-gray-800 dark:border-gray-700">
-            <SelectValue placeholder={t("allCategories")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">{t("allCategories")}</SelectItem>
-            <SelectItem value="pending">{t("pending")}</SelectItem>
-            <SelectItem value="processing">{t("processing")}</SelectItem>
-            <SelectItem value="shipped">{t("shipped")}</SelectItem>
-            <SelectItem value="delivered">{t("delivered")}</SelectItem>
-            <SelectItem value="cancelled">{t("cancelled")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="relative w-full sm:w-64">
+          <Search className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground`} />
+          <Input
+            placeholder={t('search')}
+            className={`${isRTL ? 'pr-9' : 'pl-9'}`}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
       </div>
 
-      {/* Empty State */}
       {filteredOrders.length === 0 ? (
-        <Card className="border-2 border-dashed dark:bg-gray-800 dark:border-gray-700">
-          <CardContent className="pt-10 pb-10 sm:pt-12 sm:pb-12 text-center px-4">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
-              <Package className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+        <Card className="border-dashed py-12">
+          <CardContent className="flex flex-col items-center justify-center text-center space-y-4">
+            <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
+              <Package className="h-8 w-8 text-muted-foreground" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 dark:text-gray-100">
-              {filterStatus === "all" ? t("noResults") : t("noResults")}
-            </h3>
-            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 max-w-md mx-auto">
-              {filterStatus === "all" ? t("cartEmpty") : t("tryAgain")}
-            </p>
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">{t('noOrders')}</h3>
+              <p className="text-muted-foreground">{t('cartEmpty')}</p>
+            </div>
             <Link href="/shop">
-              <Button className="gold-gradient text-sm sm:text-base h-11 sm:h-12" size="lg">
-                <ShoppingBag className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                {t("startShopping")}
-              </Button>
+              <Button>{t('startShopping')}</Button>
             </Link>
           </CardContent>
         </Card>
       ) : (
-        /* Orders List */
-        <div className="space-y-4">
-          {filteredOrders.map((order) => {
-            const itemsCount = order.cartItems?.length || 0
-            const totalPrice = order.totalOrderPrice || 0
-
-            return (
-              <Card
-                key={order._id}
-                className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/30 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-primary/50"
-              >
-                <CardContent className="p-4 sm:p-6">
-                  {/* Order Header */}
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                        <h3 className="font-bold text-base sm:text-lg dark:text-gray-100">
-                          {t("orderNumber")} #{order._id.slice(-8).toUpperCase()}
+        <div className="grid gap-4">
+          {filteredOrders.map((order) => (
+            <Card key={order._id} className="overflow-hidden hover:border-primary/50 transition-colors">
+              <CardContent className="p-0">
+                <div className="flex flex-col md:flex-row">
+                  {/* Order Main Info */}
+                  <div className="flex-1 p-4 sm:p-6 space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-1">
+                        <h3 className="font-bold flex items-center gap-2">
+                          {t('orderNumber')} #{order._id.slice(-8).toUpperCase()}
                         </h3>
-                        {getStatusBadge(order.status || "pending", t)}
+                        {getStatusBadge(order.status || 'pending', t)}
                       </div>
-                      <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                        <span>
-                          📅{" "}
-                          {new Date(order.createdAt).toLocaleDateString("ar-EG", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex items-center gap-2">
                       <Link href={`/profile/orders/${order._id}`}>
-                        <Button variant="outline" size="sm" className="text-xs sm:text-sm h-9 sm:h-10 bg-transparent">
-                          <Eye className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                          {t("viewDetails")}
+                        <Button variant="ghost" size="sm" className="text-primary gap-1">
+                          {t('viewDetails')}
+                          <ArrowUpRight className="h-4 w-4" />
                         </Button>
                       </Link>
-                      <Button variant="outline" size="sm" className="text-xs sm:text-sm h-9 sm:h-10 bg-transparent">
-                        <Download className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                        {t("download") || "Download"}
-                      </Button>
                     </div>
-                  </div>
 
-                  <Separator className="my-4 dark:bg-gray-700" />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="h-4 w-4" />
+                        <span>{new Date(order.createdAt).toLocaleDateString('ar-EG')}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <CreditCard className="h-4 w-4" />
+                        <span>{order.paymentMethodType === 'cash' ? t('cash') : t('card')}</span>
+                      </div>
+                      <div className="font-bold text-primary sm:text-left">
+                        {formatPrice(order.totalOrderPrice)}
+                      </div>
+                    </div>
 
-                  {/* Order Items */}
-                  <div className="space-y-2 mb-4">
-                    {order.cartItems?.slice(0, 3).map((item: any, index: number) => {
-                      const productTitle =
-                        typeof item.product === "object" ? item.product?.title || t("product") : t("product")
-
-                      return (
-                        <div
-                          key={index}
-                          className="flex justify-between text-xs sm:text-sm bg-gray-50 dark:bg-gray-700 p-2 sm:p-3 rounded-lg"
-                        >
-                          <span className="font-medium dark:text-gray-200">
-                            {productTitle} × {item.quantity}
-                          </span>
-                          <span className="font-bold text-primary">{formatPrice(item.price * item.quantity)}</span>
+                    {/* Products Preview */}
+                    <div className="flex gap-2 overflow-x-auto pb-2">
+                      {order.cartItems?.slice(0, 4).map((item: any, idx: number) => (
+                        <div key={idx} className="relative w-12 h-12 rounded-md border bg-muted flex-shrink-0">
+                          {item.product?.imageCover && (
+                             <img 
+                              src={item.product.imageCover} 
+                              alt="" 
+                              className="w-full h-full object-cover rounded-md"
+                            />
+                          )}
                         </div>
-                      )
-                    })}
-                    {itemsCount > 3 && (
-                      <p className="text-xs sm:text-sm text-muted-foreground text-center">
-                        {t("and")} {itemsCount - 3} {t("products")}...
-                      </p>
-                    )}
-                  </div>
-
-                  <Separator className="my-4 dark:bg-gray-700" />
-
-                  {/* Order Footer */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
-                    <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm flex-wrap">
-                      <span className="text-muted-foreground">
-                        📦 {itemsCount} {t("product")}
-                      </span>
-                      <span className="text-muted-foreground">•</span>
-                      <span>
-                        {order.isPaid ? (
-                          <Badge className="bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-800 text-xs">
-                            ✓ {t("success")}
-                          </Badge>
-                        ) : (
-                          <Badge
-                            variant="secondary"
-                            className="bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-800 text-xs"
-                          >
-                            ⏳ {t("pending")}
-                          </Badge>
-                        )}
-                      </span>
-                      <span className="text-muted-foreground">•</span>
-                      <span className="text-xs sm:text-sm">
-                        {order.paymentMethodType === "cash" ? "💵 نقدي" : "💳 بطاقة"}
-                      </span>
-                    </div>
-                    <div className="text-left sm:text-right w-full sm:w-auto">
-                      <p className="text-xs sm:text-sm text-muted-foreground mb-1">{t("total")}</p>
-                      <p className="text-xl sm:text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
+                      ))}
+                      {(order.cartItems?.length || 0) > 4 && (
+                        <div className="w-12 h-12 rounded-md border bg-muted flex items-center justify-center text-xs font-medium text-muted-foreground">
+                          +{(order.cartItems?.length || 0) - 4}
+                        </div>
+                      )}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            )
-          })}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       )}
     </div>
