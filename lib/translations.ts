@@ -20,13 +20,44 @@ export const translations = {
     bestSellers: 'الأكثر مبيعاً',
     topRated: 'الأعلى تقييماً',
     flashSale: 'عرض محدود', // === البحث والبار العلوي (Search & Top Bar) ===
+    welcomeBack: 'مرحباً بعودتك',
+
+    email: 'البريد الإلكتروني',
+    password: 'كلمة المرور',
+    confirmPassword: 'تأكيد كلمة المرور',
+    fullName: 'الاسم الكامل',
+    phone: 'رقم الهاتف',
+    optional: 'اختياري',
+    forgotPassword: 'نسيت كلمة المرور؟',
+    or: 'أو',
+    dontHaveAccount: 'ليس لديك حساب؟',
+    signUpNow: 'أنشئ حساباً الآن',
+    alreadyHaveAccount: 'لديك حساب بالفعل؟',
+    loginNow: 'سجل الدخول الآن',
+    createAccount: 'إنشاء حساب جديد',
+    agreeTerms: 'أوافق على',
+    terms: 'الشروط والأحكام',
+    and: 'و',
+    privacy: 'سياسة الخصوصية',
+    loginAgreement: 'بتسجيل الدخول، أنت توافق على شروط الخدمة وسياسة الخصوصية',
+    signupAgreement: 'بإنشاء حساب، أنت توافق على شروط الخدمة وسياسة الخصوصية',
+    // === رسائل التنبيه (Auth Messages) ===
+    loginSuccess: 'تم تسجيل الدخول بنجاح',
+    signupSuccess: 'تم إنشاء الحساب بنجاح',
+    welcomeMessage: 'مرحباً بك في متجر أيمن بشير',
+    passwordMismatch: 'كلمات المرور غير متطابقة',
+    acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام للمتابعة',
+    signupFailed: 'عذراً، فشل إنشاء الحساب. حاول مرة أخرى',
+    loading: 'جاري التحميل...',
+    error: 'خطأ',
+    pleaseTryAgain: 'يرجى المحاولة مرة أخرى لاحقاً',
 
     search: 'ابحث عن المنتجات المفضلة...',
     searchProducts: 'ابحث عن المنتجات...',
     freeShipping: 'شحن مجاني للطلبات فوق 500 جنيه',
     discount: 'خصم 20% على المجموعة الجديدة',
     viewAll: 'عرض الكل',
-    loading: 'جاري التحميل...',
+
     noResults: 'لا توجد نتائج',
     results: 'نتائج', // === المنتجات (Products) ===
 
@@ -96,26 +127,22 @@ export const translations = {
     enterEmail: 'أدخلي بريدك الإلكتروني',
     subscribe: 'اشتراك', // ✅ المفتاح الذي سبب الخطأ
     subscribeSuccess: 'تم الاشتراك بنجاح!',
-    agreeTerms: 'بالاشتراك، أنت توافق على',
+
     privacyPolicy: 'سياسة الخصوصية', // === الرسائل والتنبيهات (Validation & Messages) ===
 
     selectAddressError: 'الرجاء اختيار عنوان الشحن أولاً',
     fillRequiredFields: 'الرجاء ملء جميع الحقول المطلوبة (*)',
     invalidPhone: 'رقم الهاتف غير صحيح (010, 011, 012, 015)',
     success: 'تم بنجاح',
-    error: 'خطأ',
+
     warning: 'تنبيه',
     orderFailed: 'عذراً، فشل إنشاء الطلب. حاول مرة أخرى',
-    pleaseTryAgain: 'الرجاء المحاولة مرة أخرى لاحقاً', // === النماذج والبيانات (Forms & Inputs) ===
 
-    fullName: 'الاسم الكامل',
-    email: 'البريد الإلكتروني',
-    phone: 'رقم الهاتف',
     city: 'المدينة',
     address: 'العنوان بالتفصيل',
     postalCode: 'الرمز البريدي',
     notes: 'ملاحظات إضافية',
-    optional: 'اختياري',
+
     required: 'مطلوب',
     save: 'حفظ',
     cancel: 'إلغاء',
@@ -319,5 +346,34 @@ export const translations = {
     customer: 'Customer',
     myProfile: 'My Profile',
     dashboard: 'Dashboard',
+    // === Auth Pages ===
+    welcomeBack: 'Welcome Back',
+
+    password: 'Password',
+    confirmPassword: 'Confirm Password',
+
+    forgotPassword: 'Forgot Password?',
+    or: 'Or',
+    dontHaveAccount: "Don't have an account?",
+    signUpNow: 'Sign up now',
+    alreadyHaveAccount: 'Already have an account?',
+    loginNow: 'Login now',
+    createAccount: 'Create a new account',
+
+    terms: 'Terms & Conditions',
+    and: 'and',
+    privacy: 'Privacy Policy',
+    loginAgreement:
+      'By logging in, you agree to our Terms of Service and Privacy Policy',
+    signupAgreement:
+      'By creating an account, you agree to our Terms of Service and Privacy Policy',
+
+    // === Auth Messages ===
+    loginSuccess: 'Login Successful',
+    signupSuccess: 'Account Created Successfully',
+    welcomeMessage: 'Welcome to Ayman Bashir store',
+    passwordMismatch: 'Passwords do not match',
+    acceptTermsRequired: 'You must accept the terms and conditions to continue',
+    signupFailed: 'Sorry, sign up failed. Please try again',
   },
 }
