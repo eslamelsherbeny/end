@@ -1,9 +1,9 @@
-// ✅ translations.ts - النسخة النهائية الشاملة (المتجر + السلة + الحساب + الشحن والدفع)
+// ✅ translations.ts - النسخة المعتمدة لإنهاء كافة أخطاء الـ Build
 export type TranslationKey = keyof typeof translations.en
 
 export const translations = {
   ar: {
-    // === التنقل والقوائم ===
+    // === القوائم الأساسية ===
     home: 'الرئيسية',
     shop: 'المتجر',
     abayas: 'عباءات',
@@ -29,7 +29,7 @@ export const translations = {
     noResults: 'لا توجد نتائج',
     results: 'نتائج',
 
-    // === تسجيل الدخول والحساب ===
+    // === الحساب والمصادقة ===
     email: 'البريد الإلكتروني',
     password: 'كلمة المرور',
     confirmPassword: 'تأكيد كلمة المرور',
@@ -58,7 +58,7 @@ export const translations = {
     acceptTermsRequired: 'يجب الموافقة على الشروط والأحكام للمتابعة',
     signupFailed: 'عذراً، فشل إنشاء الحساب. حاول مرة أخرى',
 
-    // === الطلبات (Orders) ===
+    // === الطلبات ===
     orders: 'طلبات',
     myOrders: 'طلباتي',
     allCategories: 'الكل',
@@ -81,22 +81,24 @@ export const translations = {
     orderPlacedSuccessfully: 'تم إنشاء الطلب بنجاح!',
     orderWillBeShipped: 'شكراً لك! تم استلام طلبك وسيتم معالجته وشحنه قريباً.',
 
-    // === إتمام الطلب والشحن (Checkout - الحل للأخطاء الحالية) ===
-    shippingAddress: 'عنوان الشحن', // ✅ المفتاح الذي سبب الخطأ
-    paymentMethod: 'طريقة الدفع',   // ✅ مفتاح الخطأ التالي
-    reviewOrder: 'مراجعة الطلب',    // ✅ مفتاح الخطأ التالي
+    // === إتمام الطلب والشحن (Checkout) ===
+    shippingAddress: 'عنوان الشحن',
+    paymentMethod: 'طريقة الدفع',
+    reviewOrder: 'مراجعة الطلب',
     placeOrder: 'تأكيد الطلب',
     city: 'المدينة',
     address: 'العنوان بالتفصيل',
     postalCode: 'الرمز البريدي',
     saveAddress: 'حفظ هذا العنوان',
-    selectAddressError: 'يرجى اختيار عنوان الشحن',
-    fillRequiredFields: 'يرجى ملء جميع الحقول المطلوبة',
+    selectAddressError: 'يرجى اختيار عنوان الشحن أولاً',
+    fillRequiredFields: 'الرجاء ملء جميع الحقول المطلوبة',
+    invalidPhone: 'رقم الهاتف غير صحيح',
+    orderFailed: 'فشل إنشاء الطلب، حاول مجدداً',
     cash: 'دفع عند الاستلام',
     card: 'بطاقة ائتمان',
     fawry: 'فوري',
 
-    // === سلة التسوق والكوبونات ===
+    // === السلة والكوبونات ===
     shoppingCart: 'سلة التسوق',
     orderSummary: 'ملخص الطلب',
     enterCoupon: 'أدخل كود الخصم',
@@ -123,10 +125,11 @@ export const translations = {
     size: 'المقاس',
     sizes: 'المقاسات',
 
-    // === أخرى ===
+    // === رسائل النظام ===
     contactUs: 'تواصل معنا',
     success: 'تم بنجاح',
     error: 'خطأ',
+    warning: 'تنبيه', // ✅ المفتاح الذي سبب الخطأ الأخير
     pleaseTryAgain: 'يرجى المحاولة مرة أخرى لاحقاً',
     admin: 'مدير',
     customer: 'عميل',
@@ -209,7 +212,6 @@ export const translations = {
     orderPlacedSuccessfully: 'Order Placed Successfully!',
     orderWillBeShipped: 'Thank you! Your order has been received and will be processed soon.',
 
-    // === Checkout (English) ===
     shippingAddress: 'Shipping Address',
     paymentMethod: 'Payment Method',
     reviewOrder: 'Review Order',
@@ -218,8 +220,10 @@ export const translations = {
     address: 'Detailed Address',
     postalCode: 'Postal Code',
     saveAddress: 'Save Address',
-    selectAddressError: 'Please select a shipping address',
+    selectAddressError: 'Please select an address first',
     fillRequiredFields: 'Please fill all required fields',
+    invalidPhone: 'Invalid phone number',
+    orderFailed: 'Order failed, try again',
     cash: 'Cash on Delivery',
     card: 'Credit Card',
     fawry: 'Fawry',
@@ -252,7 +256,8 @@ export const translations = {
     contactUs: 'Contact Us',
     success: 'Success',
     error: 'Error',
-    pleaseTryAgain: 'Please try again',
+    warning: 'Warning', // ✅ المفتاح الذي سبب الخطأ الأخير
+    pleaseTryAgain: 'Please try again later',
     admin: 'Admin',
     customer: 'Customer',
     qualityProducts: 'Quality Products',
